@@ -15,3 +15,7 @@ Buổi 7: Các hàm có sẵn trong SQL
 + DROP TABLE ten_bang; Xóa bảng
 + DROP DATABASE ten_database; Xóa cơ sở dữ liệu
 
++ COUNT
++ GROUP BY
++ AVG()
++ DISTINCT
