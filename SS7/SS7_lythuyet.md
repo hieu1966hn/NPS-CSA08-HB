@@ -14,8 +14,16 @@ Buổi 7: Các hàm có sẵn trong SQL
 + ALTER TABLE ten_bang DROP COLUMN cot; Xóa cột khỏi bảng
 + DROP TABLE ten_bang; Xóa bảng
 + DROP DATABASE ten_database; Xóa cơ sở dữ liệu
++ BETWEEN xx AND xx;
 
-+ COUNT
-+ GROUP BY
-+ AVG()
-+ DISTINCT
++ COUNT(): Đếm số lượng bản ghi hoặc giá trị không trống
+SELECT COUNT(*) FROM ten_bang;
+
++ GROUP BY: Để gom nhóm các bản ghi có cùng giá trị trong một hoặc nhiều cột, thường kết hợp với các hàm như COUNT(), SUM(), AVG(), MAX(), MIN().
+
+
++ AVG(): Sử dụng để tính giá trị trung bình của một cột chứa dữ liệu số(như số lượng, giá cả, điểm số, ...)
+SELECT AVG(ten_cot) FROM ten_bang 
+
++ DISTINCT: Sử dụng để loại bỏ các giá trị trùng lặp trong kết quả truy vấn, chỉ lấy các giá trị duy nhất từ một hoặc nhiều cột.
+SELECT DISTINCT ten_cot FROM ten_bang;
