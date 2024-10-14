@@ -43,7 +43,7 @@ Giải thích: Tham số index = False sẽ loại bỏ cột chỉ mục khi xu
 
 Đề bài thực hành: 
 1. Tạo một DataFrame chứa thông tin về tên, tuổi, điểm số của từng học viên lớp mình.
-2. Đọc dữ liệu từ 1 file CSV hoặc excel có sẵn (Đọc file: output.csv)
+2. Đọc dữ liệu từ 1 file CSV hoặc excel có sẵn (Đọc file: csa09.csv)
 3. Thực hiện thao tác xem trước dữ liệu với head(), xem kiểu dữ liệu với dtypes, và kiểm tra thông tin chung với info().
 4. Xuất dữ liệu ra file csv (bài 1).
 
