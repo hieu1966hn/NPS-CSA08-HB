@@ -26,6 +26,7 @@ df = pd.read_excel('ten_file.xlsx')
 print(df.info())
 
 - head(): Xem 5 dòng đầu tiên của DF
+- tail(n): Trả về n hàng cuối cùng của DF
 
 - info(): Xem thông tin chung về DF, bao gồm số lượng dòng, cột và kiểu dữ liệu.
 
