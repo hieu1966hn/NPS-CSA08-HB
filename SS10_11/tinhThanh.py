@@ -91,16 +91,70 @@ df = pd.DataFrame(province_list, columns = col_list)
 
 
 
+### Bài 1: Trích xuất tên các tỉnh và thành pố trong df để in ra màn hình theo định dạng 
 
 #### Bài chữa của Hùng
 # b = ""
-# for i in range(0, len(super_csv)):
-#     b = b + super_csv["Name"][i] + ", "
+# for i in range(0, len(df)):
+#     b = b + df["Name"][i] + ", "
 # print(b)
 
 
-# print('list of provinces and cities: ', end='')
-# for city in df['Name'][:-1]:
-#     print(city, end = ', ')
+### Bài 2: Tìm tên các thành phố và vùng tương ứng trong df.
+# df_division_region =  df.loc[df['Division'] == 'Thành phố Trung ương', ['Name', 'Region']]
+# print(df_division_region)
 
 
+### Bài 3: - Vùng  Từ df, hãy tìm: 
+## Số vùng địa lý ở Việt Nam.
+## Số tỉnh thành trong mỗi vùng địa lý.
+
+### Số vùng
+# region_count = df['Region'].value_counts()
+# print(region_count)
+
+###### Bài 4: Dân Số: Tìm tỉnh/thành phố có dân số đông nhất và 
+## tỉnh/ thành phố có dân số ít nhất.
+## In ra tên tỉnh/ thành phố và dân số theo đơn vị người.
+# max_pop = df['Population'].max()
+# min_pop = df['Population'].min()
+
+# print(max_pop)
+# print(min_pop)
+
+# max_pop_province = df[df['Population'] == max_pop].iloc[0,:]
+# min_pop_province = df[df['Population'] == min_pop].iloc[0,:]
+# print(max_pop_province)
+# print(min_pop_province)
+
+
+###### Bài 5: Diện tích vùng
+## Tính tổng diện tích trong các vùng địa lý, 
+## sau đó tính tỉ lệ diện tích của từng vùng theo công thức:
+## Tỉ lệ diện tích một vùng = Diện tích vùng đó/ Tổng diện tích các vùng.
+
+### Vùng và số lượng tỉnh thành trong từng vùng
+regions_count = df['Region'].value_counts() 
+# print(regions_count)
+
+### Tính tổng diện tích trong mỗi vùng
+area_list = []
+for region in regions_count.index:
+    area_list.append(df[df['Region'] == region]['Area'].sum())
+
+### diện tích của từng vùng
+print(area_list)
+
+
+### Tính tỉ số diện tích
+total_area = df['Area'].sum()
+area_proportion_list = [area/total_area*100 for area in area_list]
+
+### construct DataFrame
+area_df = pd.DataFrame({
+    'Region': regions_count.index,
+    'Total Area (km2)': area_list,
+    'Area Proportion (%)': area_proportion_list
+})
+
+print(area_df)
